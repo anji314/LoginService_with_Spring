@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+ 
+<mapper namespace="com.login.loginservice.mapper.loginmapper">
+ 
+    <select id="count" resultType="int">
+        SELECT COUNT(*)
+        FROM userinfo;
+    </select>
+    
+    <select id="loginCK"  parameterType="com.login.loginservice.domain.LoginVO" resultType="int" >
+    	SELECT COUNT(*)
+  		FROM userinfo
+  	 	WHERE userID = #{userID} AND userPWD = #{userPWD};
+    </select>
+    
+    <select id="loginUSER" parameterType="com.login.loginservice.domain.LoginVO" resultType="com.login.loginservice.domain.LoginVO">
+	    SELECT *
+	    FROM userinfo
+	    WHERE userID= #{userID}; 
+    </select>
+</mapper>
+
